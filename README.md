@@ -33,7 +33,7 @@ Additional FEATURES
 - mikroBus (2+2)
 - CP2102 USBtoUART x1, FTDI-pin-connector x1, microUSB-B x1(optional C3CDC)
 - AMS1117 800mA 3.3V regulator x1
-- level-shift x4, Grove-I2C x2
+- level-shift x4, Grove-I2C x2 (optinal I2C level shifter)
 - DIP-LCD connector x1
 - .5mm 20Pin FPC connector x1
 - 2.54mm/100mil proto area 16x7
