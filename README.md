@@ -21,6 +21,8 @@ FEATURES
   + SPIx1,I2Cx1,UARTx1,GPIOx3 on MikroeBus
 - 2 half-mount holes  
 - microUSB-B connector for CDC Debugging and Programming, 600mA 3.3V regulator
+- RPiPico 40pin connector
+  + TF card slot
 
 
 
