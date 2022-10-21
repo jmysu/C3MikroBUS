@@ -27,7 +27,7 @@ FEATURES
 
 ---
 ## Project C3PicoProto<br>
-ESP32C3+RPiPico+mikroBUS+Proto+LCD<br> 
+ESP32C3 + mikroBUS + RPi-Pico + Proto + LCD<br> 
 
 
 
