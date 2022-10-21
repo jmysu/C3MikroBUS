@@ -4,7 +4,7 @@ JimmyCraft Kits for C3+Pico
 
 ----
 Project C3PicoMikroBus<br>
-ESP32C3+RPiPico+MikroBusx2<br> 
+ESP32C3 + MikroBusx2 + Rpi-Pico<br> 
 <img src= "C3PicoMikroBus/pic/C3PicoMikroBus_ISO_V1.png" width=320>
 
 
@@ -15,7 +15,7 @@ FEATURES
   + RISC-V single core processor runninig on 160 Mhz
   + 384K ROM, 400K SRAM, 8K SRAM in RTC, 4MB flash
   + 2.4 GHz WiFi (802.11 b/g/n) 1T1R up to 150 Mbps, Bluetooth 5, Onboard antenna
-  + RESET & Boot button
+  + RESET & BOOT button
   + Neopixel RGB LED, 65dB buzzer, optional status-LED/photo-sensor
   + SPIx1,I2Cx1,UARTx1,GPIOx3 on MikroeBus
 - RPi-Pico 40pin connector (optional RP2040,16MB qspi-flash)
