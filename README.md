@@ -41,8 +41,8 @@ Additional FEATURES
 [Project C3Pico-Proto Link]()
 
 ---
-[mikroBUS™](https://www.mikroe.com/mikrobus)
-[WOWKI ESP32C3 simulator](https://wokwi.com/projects/new/esp32-c3)
-[WOWKI RP2040 simulator](https://wokwi.com/projects/new/pi-pico-sdk)
-[WOWKI RP2040 circuitPython simulator](https://wokwi.com/projects/new/circuitpython-pi-pico)
-[JimmyCraft C3Pico simulator w/ WOWKI](https://github.com/jmysu/C3MikroE_Wokwi)
+[mikroBUS™](https://www.mikroe.com/mikrobus)<br>
+[WOWKI ESP32C3 simulator](https://wokwi.com/projects/new/esp32-c3)<br>
+[WOWKI RP2040 simulator](https://wokwi.com/projects/new/pi-pico-sdk)<br>
+[WOWKI RP2040 circuitPython simulator](https://wokwi.com/projects/new/circuitpython-pi-pico)<br>
+[JimmyCraft C3Pico simulator w/ WOWKI](https://github.com/jmysu/C3MikroE_Wokwi)<br>
