@@ -1,5 +1,5 @@
 # JimmyCraft C3Pico
-JimmyCraft Kits for C3+Pico
+JimmyCraft Kits for ESPC3 && PP2040
 <br>
 
 ----
