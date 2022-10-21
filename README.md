@@ -36,7 +36,7 @@ Additional FEATURES
 - AMS1117 800mA 3.3V regulator x1
 - level-shifter x4, Grove-I2C x2 (optinal I2C level-shift)
 - JTAG-1.27mm 2x5
-- DIP-LCD connector x1
+- DIP-SPI-LCD connector w/ touch x1
 - .5mm 20Pin FPC connector x1
 - 2.54mm/100mil proto area 16x7
 - Mount hole +1
