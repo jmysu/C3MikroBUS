@@ -19,10 +19,10 @@ FEATURES
   + RESET & Boot button
   + STATUS LED, Neopixel RGB LED, 65dB Buzzer
   + SPIx1,I2Cx1,UARTx1,GPIOx3 on MikroeBus
+- RPi-Pico 40pin connector
+  + TF card slot
 - 2 half-mount holes  
 - microUSB-B connector for CDC Debugging and Programming, 600mA 3.3V regulator
-- RPiPico 40pin connector
-  + TF card slot
 
 
 
