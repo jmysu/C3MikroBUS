@@ -30,7 +30,8 @@ FEATURES
 ESP32C3 + mikroBUS + RPi-Pico + Proto + LCD<br> 
 <img src= "C3PicoProto/pic/C3PicoProto_V0.png" width=400><br>
 Additional FEATURES
-- CP2102 USBtoUART x1, FTDI-pin-connector x1
+- mikroBus (2+2)
+- CP2102 USBtoUART x1, FTDI-pin-connector x1, microUSB-B x1(optional C3CDC)
 - AMS1117 800mA 3.3V regulator x1
 - level-shift x4, Grove-I2C x2
 - DIP-LCD connector x1
