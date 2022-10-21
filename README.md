@@ -27,7 +27,7 @@ FEATURES
 
 ---
 ## Project C3PicoProto<br>
-ESP32C3 + mikroBUS + RPi-Pico + Proto + LCD<br> 
+ESP32C3 + mikroBUSx4 + RPi-Pico + Proto + LCD<br> 
 <img src= "C3PicoProto/pic/C3PicoProto_V0.png" width=400><br>
 Additional FEATURES
 - mikroBus (2+2)
