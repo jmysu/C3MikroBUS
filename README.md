@@ -44,6 +44,7 @@ Additional FEATURES
 [Project C3Pico-Proto Link]()
 
 ---
+## References <br>
 [mikroBUS™](https://www.mikroe.com/mikrobus)<br>
 [WOWKI ESP32C3 simulator](https://wokwi.com/projects/new/esp32-c3)<br>
 [WOWKI RP2040 simulator](https://wokwi.com/projects/new/pi-pico-sdk)<br>
