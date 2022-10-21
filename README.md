@@ -17,7 +17,7 @@ FEATURES
   + 2.4 GHz WiFi (802.11 b/g/n) 1T1R up to 150 Mbps, Bluetooth 5, Onboard antenna
   + RESET & BOOT button
   + Neopixel RGB LED, 65dB buzzer, optional status-LED/photo-sensor
-  + SPIx1,I2Cx1,UARTx1,GPIOx3 on MikroeBus
+  + SPIx1,I2Cx1,UARTx1,GPIOx3 on mikroBUS™x2
 - RPi-Pico 40pin connector (optional RP2040,16MB qspi-flash)
   + uSD/TF card slot
 - 2 half-mount holes  
@@ -28,7 +28,7 @@ FEATURES
 ---
 ESP32C3+RPiPico+MikroBusx4+Proto+LCD<br> 
 Project C3PicoProto<br>
+
+
 ---
-
-
 [mikroBUS™](https://www.mikroe.com/mikrobus)
