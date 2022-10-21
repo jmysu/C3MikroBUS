@@ -18,7 +18,7 @@ FEATURES
   + RESET & BOOT button
   + Neopixel RGB LED, 65dB buzzer, optional status-LED/photo-sensor
   + Connectors SPIx1,I2Cx1,UARTx1,GPIOx3,OLED-I2Cx1,nRF24x1 on mikroBUSx2
-- RPi-Pico 40pin connector (optional RP2040,16MB qspi-flash)
+- RPi-Pico 40pin connector (optional RP2040, 16MB qspi-flash)
   + uSD/TF card slot
 - 2 half-mount holes  
 - microUSB-B connector for CDC Debugging and Programming, 600mA 3.3V regulator
