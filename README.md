@@ -1,4 +1,4 @@
-# JimmyCraft C3Pico
+# JimmyCraft C3Pico <img src= "幾米匠作128x128.jpg">
 JimmyCraft Kits for ESPC3 && PP2040
 <br>
 
