@@ -35,6 +35,7 @@ Additional FEATURES
 - level-shift x4, Grove-I2C x2
 - DIP-LCD connector x1
 - .5mm 20Pin FPC connector x1
+- 2.54mm/100mil proto area 16x7
 
 [Project C3Pico-Proto Link]()
 
