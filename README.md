@@ -39,6 +39,7 @@ Additional FEATURES
 - DIP-LCD connector x1
 - .5mm 20Pin FPC connector x1
 - 2.54mm/100mil proto area 16x7
+- Mount hole +1
 
 [Project C3Pico-Proto Link]()
 
