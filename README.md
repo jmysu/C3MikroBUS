@@ -1,4 +1,4 @@
-# JimmyCraft C3Pico <img src= "幾米匠作128x128.jpg" width=64>
+# JimmyCraft C3MikroBUS/C3Pico <img src= "幾米匠作128x128.jpg" width=64>
 JimmyCraft Kits for ESPC3 && PP2040
 <br>
 
@@ -67,4 +67,4 @@ Additional FEATURES
 [WOWKI RP2040 PicoSDK simulator](https://wokwi.com/projects/new/pi-pico-sdk)<br>
 [WOWKI RP2040 circuitPython simulator](https://wokwi.com/projects/new/circuitpython-pi-pico)<br>
 [JimmyCraft C3MikroE simulator w/ WOWKI](https://github.com/jmysu/C3MikroE_Wokwi)<br>
-[JimmyCraft C3Pico Arduino projects w/ PlatformIO](https://github.com/jmysu/ESP32C3_Pico) Compatible w/ all C3Pico kits!
+[JimmyCraft C3MikroBUS Arduino projects w/ PlatformIO](https://github.com/jmysu/ESP32C3_Pico) Compatible w/ all C3MikroBUS kits!
