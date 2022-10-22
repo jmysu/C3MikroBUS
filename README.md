@@ -3,7 +3,7 @@ JimmyCraft Kits for ESPC3 && PP2040
 <br>
 
 ----
-## Project C3PicoMikroBUS<br>
+## Project C3PicoMikroBUS V1<br>
 ESP32C3 + MikroBusx2 + Rpi-Pico<br> 
 <img src= "C3PicoMikroBus/pic/C3PicoMikroBus_ISO_V1.png" width=320>
 
