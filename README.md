@@ -5,8 +5,8 @@ JimmyCraft Kits for ESPC3 && PP2040
 ----
 ## Project C3MikroBUS V0<br>
 ESP32C3 + mikroBUSx2 <br>
-<img src= "C3MikroBUS/pic/C3MikroBUS_V0.png" width=320>
-### C3Pico-MikroBUS kit!
+<img src= "C3MikroBUS/pic/C3MikroBUS_V0.png" width=240>
+### C3MikroBUS kit!
 FEATURES
 - AiThinker ESP32C3-12F on mikroBUS
   + RISC-V single core processor runninig on 160 Mhz
