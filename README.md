@@ -22,7 +22,7 @@ FEATURES
 - RPi-Pico 40pin connector (optional RP2040, 16MB qspi-flash)
   + uSD/TF card slot
 - 2 half-mount holes  
-- microUSB-B connector for CDC Debugging and Programming, 600mA 3.3V regulator
+- microUSB-B connector for C3CDC Debugging and Programming, 600mA 3.3V regulator
 
 [Project C3Pico-mikroBUS Link]()
 
