@@ -4,7 +4,7 @@ JimmyCraft Kits for ESPC3 && PP2040
 
 ----
 ## Project C3PicoMikroBUS V1<br>
-ESP32C3 + MikroBusx2 + Rpi-Pico<br> 
+ESP32C3 + mikroBUSx2 + Rpi-Pico<br> 
 <img src= "C3PicoMikroBus/pic/C3PicoMikroBus_ISO_V1.png" width=320>
 
 
@@ -24,7 +24,7 @@ FEATURES
 - 2 half-mount holes  
 - microUSB-B connector for C3CDC Debugging and Programming, 600mA 3.3V regulator
 
-[Project C3Pico-mikroBUS Link]()
+[Project C3Pico-mikroBUS V1 Link]()
 
 ---
 ## Project C3PicoProto V0<br>
