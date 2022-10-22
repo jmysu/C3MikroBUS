@@ -1,5 +1,5 @@
 # JimmyCraft C3MikroBUS/C3Pico <img src= "幾米匠作128x128.jpg" width=64>
-JimmyCraft Kits for ESPC3 && PP2040
+JimmyCraft Kits for ESPC3 && PP2040 w/ mikroBUS
 <br>
 
 ----
