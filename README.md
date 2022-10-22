@@ -3,6 +3,23 @@ JimmyCraft Kits for ESPC3 && PP2040
 <br>
 
 ----
+## Project C3MikroBUS V0<br>
+ESP32C3 + mikroBUSx2 <br>
+<img src= "C3MikroBUS/pic/C3MikroBUS_V0.png" width=320>
+### C3Pico-MikroBUS kit!
+FEATURES
+- AiThinker ESP32C3-12F on mikroBUS
+  + RISC-V single core processor runninig on 160 Mhz
+  + 384K ROM, 400K SRAM, 8K SRAM in RTC, 4MB flash
+  + 2.4 GHz WiFi (802.11 b/g/n) 1T1R up to 150 Mbps, Bluetooth 5, Onboard antenna
+  + RESET & BOOT button
+  + Neopixel RGB LED, 65dB buzzer, optional status-LED/photo-sensor
+  + Connectors SPIx1, I2Cx1, UARTx1, GPIOx3 on mikroBUSx2
+  + Connectors OLED-I2Cx1, nRF24SPIx1 
+- microUSB-B connector for C3CDC Debugging and Programming, 600mA 3.3V regulator
+
+
+----
 ## Project C3PicoMikroBUS V1<br>
 ESP32C3 + mikroBUSx2 + Rpi-Pico<br> 
 <img src= "C3PicoMikroBus/pic/C3PicoMikroBus_ISO_V1.png" width=320>
