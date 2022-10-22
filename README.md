@@ -36,10 +36,10 @@ FEATURES
   + Neopixel RGB LED, 65dB buzzer, optional status-LED/photo-sensor
   + Connectors SPIx1, I2Cx1, UARTx1, GPIOx3 on mikroBUSx2
 - Connectors OLED-I2Cx1, nRF24SPIx1 
-- RPi-Pico 40pin connector (optional RP2040, 16MB qspi-flash)
-  + uSD/TF card slot
 - 2 half-mount holes  
 - microUSB-B connector for C3CDC Debugging and Programming, 600mA 3.3V regulator
+- RPi-Pico 40pin connector (optional RP2040, 16MB qspi-flash)
+  + uSD/TF card slot
 
 [Project C3Pico-mikroBUS V1 Link]()
 
