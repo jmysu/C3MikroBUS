@@ -63,7 +63,7 @@ Additional FEATURES
 ---
 ## References <br>
 [mikroBUS™] (https://www.mikroe.com/mikrobus)<br>
-[WOWKI ESP32C3 Arduino simulator] (https://wokwi.com/projects/new/esp32-c3)<br>
+[WOWKI ESP32 simulator] (https://docs.wokwi.com/guides/esp32)<br>
 [WOWKI RP2040 PicoSDK simulator] (https://wokwi.com/projects/new/pi-pico-sdk)<br>
 [WOWKI RP2040 microPython simulator] (https://wokwi.com/projects/300504213470839309)<br>
 [JimmyCraft C3MikroE simulator w/ WOWKI](https://github.com/jmysu/C3MikroE_Wokwi) Customized WOWKI board<br>
