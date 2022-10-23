@@ -19,6 +19,7 @@ FEATURES
 - microUSB-B connector for C3CDC Debugging and Programming, 600mA 3.3V regulator
 
 [Project C3MikroBUS Link] (https://github.com/jmysu/C3MikroBUS)
+
 ----
 ## Project C3PicoMikroBUS V1<br>
 ESP32C3 + mikroBUSx2 + Rpi-Pico<br> 
@@ -41,7 +42,7 @@ FEATURES
 - RPi-Pico 40pin connector (optional RP2040, 16MB qspi-flash)
   + uSD/TF card slot
 
-[Project C3Pico-mikroBUS Link] (https://github.com/jmysu/C3PicoMikroBUS)
+[Project C3Pico-mikroBUS Link] (https://github.com/jmysu/C3MikroBUS)
 
 ---
 ## Project C3PicoProto V0<br>
@@ -58,7 +59,7 @@ Additional FEATURES
 - 2.54mm/100mil proto area 16x7
 - Mount hole +1
 
-[Project C3Pico-Proto Link] (https://github.com/jmysu/C3PicoProto)
+[Project C3Pico-Proto Link] (https://github.com/jmysu/C3MikroBUS)
 
 ---
 ## References <br>
