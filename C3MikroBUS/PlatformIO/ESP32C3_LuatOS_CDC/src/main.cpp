@@ -1,3 +1,16 @@
+/**
+ * @file main.cpp
+ * @author jimmy.su
+ * @brief 
+ * @version 0.1
+ * @date 2022-11-05
+ * 
+ * @copyright Copyright (c) 2022
+ * 
+ * 
+ * Remember to copy loatos-cdc.json to ./platformio/platforms/boards
+ * 
+ */
 #include <Arduino.h>
 #include "HWCDC.h"
 
@@ -9,8 +22,9 @@ void setup() {
   pinMode(13, OUTPUT);
 
   Serial.begin(115200);
-  delay(500);
- 
+  while (!Serial) {}
+  delay(2000);
+
   Serial.println("\nESP32C3 USBCDC Test!");
   Serial.print(F(__DATE__));
   Serial.print(F("  "));
