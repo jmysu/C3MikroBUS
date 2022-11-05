@@ -22,15 +22,18 @@ void setup() {
   pinMode(13, OUTPUT);
 
   Serial.begin(115200);
+  Serial.setDebugOutput(true); //Enable log to CDC serial
   while (!Serial) {}
   delay(2000);
 
-  Serial.println("\nESP32C3 USBCDC Test!");
+  log_w("====================");
+  log_d("ESP32C3 USBCDC Test!");
+  log_w("====================");
+  Serial.print(F("Build Time: "));
   Serial.print(F(__DATE__));
   Serial.print(F("  "));
   Serial.print(F(__TIME__));
   Serial.println();
-  Serial.println("=======================");
 
 }
 
