@@ -64,7 +64,7 @@ Additional FEATURES
 
 
 
-##Neopixel Logic2 Capture  <br>
+## Neopixel Logic2 Capture  <br>
 <img src= "WS2812bSaleaeLogic2_1205.png"> 
 <br>
 
