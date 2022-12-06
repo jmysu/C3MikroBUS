@@ -62,6 +62,11 @@ Additional FEATURES
 
 [Project C3Pico-Proto Link] (https://github.com/jmysu/C3MikroBUS)
 
+
+##Neopixel Logic2 Capture  <br>
+<img src= "WS2812bSalecLogic2_1205.png"> <br>
+
+
 ---
 ## References <br>
 [mikroBUS™] (https://www.mikroe.com/mikrobus)<br>
