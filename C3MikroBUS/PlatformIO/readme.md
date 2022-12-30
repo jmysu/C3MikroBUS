@@ -9,3 +9,6 @@
 ### Switching between factory and APP partition
 <img src= "C3mBUS_FactoryOTA/doc/C3FactoryOTA_Partition.png"> <img src="C3mBUS_FactoryOTA/doc/C3mBUS FactoryOTA Flow.png">
 
+
+## NVS test Project<br>
+### list keys in each NVS/Preference namespace
