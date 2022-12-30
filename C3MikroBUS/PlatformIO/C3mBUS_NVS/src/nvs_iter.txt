@@ -1,0 +1,268 @@
+// From https://github.com/Edzelf/ESP32-Show_nvs_keys/
+// Caveat emptor: No express or implied warranty, functionality
+//                or fitness for any particular purpose
+// Show_nvs_keys.ino
+// Read all the keys from nvs partition and dump this information.
+//
+#include <Arduino.h>
+
+//#include <stdio.h>
+//#include <stddef.h>
+//#include <string.h>
+#include <esp_log.h>
+#include <esp_partition.h>
+#include "nvs_iter.h"
+
+static const char *TAG = "NVSITER";
+
+struct nvs_entry
+{
+  uint8_t  Ns ;         // Namespace ID
+  uint8_t  Type ;       // Type of value
+  uint8_t  Span ;       // Number of entries used for this item
+  uint8_t  Rvs ;        // Reserved, should be 0xFF
+  uint32_t CRC ;        // CRC
+  char     Key[16] ;    // Key in Ascii
+  uint64_t Data ;       // Data in entry 
+} ;
+
+struct nvs_page                                     // For nvs entries
+{                                                   // 1 page is 4096 bytes
+  uint32_t  State ;
+  uint32_t  Seqnr ;
+  
+  uint32_t  Unused[5] ;
+  uint32_t  CRC ;
+  uint8_t   Bitmap[32] ;
+  struct nvs_entry Entry[126] ;
+} ;
+
+struct ns_index
+{
+  uint16_t names[256];
+  uint16_t next;
+  char buf[2048];
+};
+
+struct nvs_iter
+{
+  struct nvs_page           page ;                            // Holds current page in partition
+  const esp_partition_t*    nvs ;                             // Pointer to partition struct
+  char                      prefix[16];
+  struct ns_index          *nsindex;                          // Holds namespace names
+
+  uint8_t                   namespace_ID;
+  uint32_t                  offset;                           // Offset in nvs partition
+  int32_t                   ix;                               // Index in Entry 0..125
+};
+
+char *nvs_iter_type_to_string(struct nvs_iter_typ *nityp, char *buf) {
+  strcpy(buf, nityp->nvs_type == nityp->NVST_SIGNED ? "int" :
+              nityp->nvs_type == nityp->NVST_UNSIGNED ? "uint" :
+              nityp->nvs_type == nityp->NVST_STRING ? "string" :
+              nityp->nvs_type == nityp->NVST_BLOB ? "blob" : "<unknown>");
+  if (nityp->nvs_type == nityp->NVST_SIGNED || nityp->nvs_type == nityp->NVST_UNSIGNED) {
+    sprintf(buf + strlen(buf), "%d", 8 * nityp->bytewid);
+  }
+  return buf;
+}
+
+uint64_t nvs_iter_get_data(const char *key) {
+  return *((uint64_t *) (key + 16));
+}
+
+char *nvs_iter_get_ns(struct nvs_iter *it, const char *key) {
+  size_t off = offsetof(struct nvs_entry, Key);
+  struct nvs_entry *ent = (struct nvs_entry *) (key - off);
+  if( NULL == it->nsindex)
+    return (char*)"NONE";
+  else
+    return it->nsindex->buf + it->nsindex->names[ent->Ns];
+}
+
+//**************************************************************************************************
+//                                   F I N D N S I D                                               *
+//**************************************************************************************************
+// Find the namespace ID for the namespace passed as parameter.                                    *
+//**************************************************************************************************
+static uint8_t FindNsID(const esp_partition_t* nvs, const char* ns, struct ns_index **indexP)
+{
+  esp_err_t                 result = ESP_OK ;                 // Result of reading partition
+  uint32_t                  offset = 0 ;                      // Offset in nvs partition
+  uint8_t                   bm ;                              // Bitmap for an entry
+  uint8_t                   res = 0xFF ;                      // Function result
+  //struct nvs_page          *page = malloc(sizeof(struct nvs_page));
+  struct nvs_page          page;
+  
+  struct ns_index          *index = NULL;
+
+  if ( NULL == ns ) {
+     index = (struct ns_index *) malloc(sizeof(struct ns_index));
+     strcpy(index->buf, "<OVF>");
+     index->next = 6;
+     *indexP = index;
+  }
+
+  while ( offset < nvs->size )
+  {
+    result = esp_partition_read ( nvs, offset,                // Read 1 page in nvs partition
+                                  &page,
+                                  sizeof(struct nvs_page) ) ;
+    ESP_LOGV(TAG, "NSREAD: %d/%d -> %d", offset, nvs->size, result);
+    if ( result != ESP_OK )
+    {
+      ESP_LOGD ( TAG, "Error reading NVS!" ) ;
+      break ;
+    }
+    int i = 0 ;
+    while ( i < 126 )
+    {
+      bm = ( page.Bitmap[i/4] >> ( ( i % 4 ) * 2 ) ) & 0x03 ;// Get bitmap for this entry
+      if ( ( bm == 2 ) &&
+           ( page.Entry[i].Ns == 0 ) &&  
+           ( NULL == ns || strcmp ( ns, page.Entry[i].Key ) == 0 ) )
+      {
+        res = page.Entry[i].Data & 0xFF ;                    // Return the ID
+        if ( NULL == ns ) {
+          int len = strlen(page.Entry[i].Key) + 1;
+          ESP_LOGV(TAG, "NS(%d): %s", res, page.Entry[i].Key);
+          if (index->next + len > 2048) {
+            index->names[res] = 0;
+          }
+          else {
+            index->names[res] = index->next;
+            strcpy(index->buf + index->next, page.Entry[i].Key);
+            index->next += len;
+          }
+          i += page.Entry[i].Span ;                          // Next entry
+        }
+        else {
+          ESP_LOGV(TAG, "Found NS(%d): %s", res, page.Entry[i].Key);
+          offset = nvs->size ;                                  // Stop outer loop as well
+          break ;
+        }
+      }
+      else
+      {
+        if ( bm == 2 )
+        {
+          i += page.Entry[i].Span ;                          // Next entry
+          ESP_LOGV(TAG, "KEY(%d): %s", page.Entry[i].Ns, page.Entry[i].Ns == 0xFF ? "<ANY>" : page.Entry[i].Key);
+        }
+        else
+        {
+          i++ ;
+        }
+      }
+    }
+    offset += sizeof(struct nvs_page) ;                              // Prepare to read next page in nvs
+  }
+  //free(page);
+  return res ;
+}
+
+nvs_iter_t nvs_iter_new(const char *nmspace, const char *prefix)
+{
+  esp_partition_iterator_t  pi ;                              // Iterator for find
+  const esp_partition_t*    nvs ;                             // Pointer to partition struct
+  struct nvs_iter *it;
+  struct ns_index *index;
+  uint8_t namespace_ID;
+
+  pi = esp_partition_find ( ESP_PARTITION_TYPE_DATA,          // Get partition iterator for
+                            ESP_PARTITION_SUBTYPE_ANY,        // this partition
+                            "nvs" ) ;
+  if ( pi )
+  {
+    nvs = esp_partition_get ( pi ) ;                          // Get partition struct
+    esp_partition_iterator_release ( pi ) ;                   // Release the iterator
+  }
+  else
+  {
+    ESP_LOGD ( TAG, "NVS Partition not found!" ) ;
+    return NULL;
+  }
+  if ( nmspace && *nmspace ) {
+    namespace_ID = FindNsID ( nvs, nmspace, NULL );
+    index = NULL;
+    if ( namespace_ID == 0xFF ) {
+      ESP_LOGD ( TAG, "NVS namespace not found!" ) ;
+      return NULL;
+    }
+  }
+  else {
+    namespace_ID = 0xFF;
+    FindNsID ( nvs, NULL, &index );
+  }
+
+  it = (struct nvs_iter *) malloc(sizeof(struct nvs_iter));
+  assert(it);
+
+  it->namespace_ID = namespace_ID;
+  strcpy(it->prefix, prefix ? prefix : "");
+  it->nvs = nvs;
+  it->ix = -1;
+  it->offset = 0;
+  it->nsindex = index;
+  ESP_LOGV(TAG, "OFF:%d/%d IX:%d NS:%d", it->offset, it->nvs->size, it->ix, it->namespace_ID);
+  return it;
+}
+
+void nvs_iter_done(struct nvs_iter *it)
+{
+  if ( NULL != it ) {
+    if ( it->nsindex ) free(it->nsindex);
+    free(it);
+  }
+}
+
+bool nvs_iter_next(struct nvs_iter *it, const char **key, nvs_iter_typ_t *typ)
+{
+  esp_err_t                 result = ESP_OK ;
+
+  ESP_LOGV(TAG, "OFF:%d/%d IX:%d", it->offset, it->nvs->size, it->ix);
+  while ( it->offset < it->nvs->size )
+  {
+    if (it->ix < 0 || it->ix >= 126) {
+      result = esp_partition_read ( it->nvs, it->offset,      // Read 1 page in nvs partition
+                                    &it->page,
+                                    sizeof(struct nvs_page) ) ;
+      ESP_LOGV(TAG, "NSREAD: %d/%d -> %d", it->offset, it->nvs->size, result);
+      if ( result != ESP_OK ) {
+        ESP_LOGD ( TAG, "Error reading NVS!" ) ;
+        return  false;
+      }
+      it->ix = 0;
+      it->offset += sizeof(struct nvs_page) ;                 // Prepare to read next page in nvs
+    }
+
+    while ( it->ix < 126 )
+    {
+      uint8_t bm = ( it->page.Bitmap[it->ix/4] >> ( ( it->ix % 4 ) * 2 ) ) & 0x03 ;  // Get bitmap for this entry
+      if ( bm == 2 )
+      {
+        const char *ky = it->page.Entry[it->ix].Key;
+        uint8_t tp = it->page.Entry[it->ix].Type;
+        int ns = it->page.Entry[it->ix].Ns;
+        it->ix += it->page.Entry[it->ix].Span ;               // Next entry
+
+        if ( ( ( it->namespace_ID == 0xFF && ns > 0 && ns < 0xFF ) || // Show all if ID = 0xFF
+               ns == it->namespace_ID ) &&                    // otherwise just my namespace
+             ( ! it->prefix[0] ||
+               0 == strncmp(it->prefix, ky, strlen(it->prefix)) ) )
+        {
+          typ->nvs_type = (tp >> 4) & 0xf;
+          typ->bytewid = tp & 0xf;
+          *key = ky;
+          return true;
+        }
+      }
+      else {
+        it->ix++ ;
+      }
+    }
+  }
+  return false;
+}
+
+// vim: set sw=2 sts=2 et:

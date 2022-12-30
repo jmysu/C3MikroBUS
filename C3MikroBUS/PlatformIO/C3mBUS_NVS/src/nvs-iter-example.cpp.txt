@@ -1,0 +1,44 @@
+// Example use of the iterator. Intended for the ESP32 console
+// Caveat emptor: No express or implied warranty, functionality
+//                or fitness for any particular purpose
+#include <Arduino.h>
+#include "nvs_iter.h"
+#include <nvs.h>
+
+void setup()
+{
+   
+  const char *key;
+  nvs_iter_typ_t typ;
+
+  nvs_iter_t it = nvs_iter_new("nvs",  NULL);
+
+  if (!it) {
+    printf("Can not iterate nvs\n");
+    return ;
+  }
+
+  char buf[10];
+  while (nvs_iter_next(it, &key, &typ)) {
+    char val[20];
+    uint64_t data = nvs_iter_get_data(key);
+
+    if (typ.nvs_type == typ.NVST_SIGNED || typ.nvs_type == typ.NVST_UNSIGNED) {
+      uint64_t ival = 0;
+      memcpy(&ival, &data, typ.bytewid);
+      sprintf(val, " = %llu", ival);
+    }
+    else
+      val[0] = 0;
+
+    if (1)
+      printf("%-6s %15s:%-15s%s\n", nvs_iter_type_to_string(&typ, buf), nvs_iter_get_ns(it, key), key, val);
+    else
+      printf("%-6s %-15s%s\n", nvs_iter_type_to_string(&typ, buf), key, val);
+  }
+  nvs_iter_done(it);
+}
+
+void loop()
+{
+}
