@@ -17,4 +17,4 @@
 
 ## QuickEspNow w/ LED Sync
 ### Sync multiple devices' LED with QuickEspNow broadcasting
-<img src="WireShark_EspNowBroadcast.png">
+<img src="WireShark_EspNowBroadcast.png" width=480> <img src="EspNowBlink.gif" width=480>
