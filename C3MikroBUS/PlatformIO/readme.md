@@ -15,6 +15,6 @@
 <img src="C3mBUS_NVS/C3NVS.png">
 
 
-##QuickEspNow Boradcasting && LED Sync
+## QuickEspNow w/ LED Sync
 ### Sync LEDs with QuickEspNow boradcasting
 <img src="WireShark_EspNowBroadcast.png">
