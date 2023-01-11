@@ -16,5 +16,5 @@
 
 
 ## QuickEspNow w/ LED Sync
-### Sync multiple devices' LED with QuickEspNow broadcasting
+### Sync multiple devices' LED with QuickEspNow broadcasting, the middle one is the latest board added to the group!
 <img src="WireShark_EspNowBroadcast.png" width=480> <img src="EspNowBlink.gif" width=480>
