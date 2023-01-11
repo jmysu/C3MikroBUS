@@ -17,4 +17,4 @@
 
 ##QuickEspNow Boradcasting && LED Sync
 ### Sync LEDs with QuickEspNow boradcasting
-<img src="ESP32C3CDC_QuickEspNowSync/WireShark_EspNowBroadcast.png">
+<img src="WireShark_EspNowBroadcast.png">
