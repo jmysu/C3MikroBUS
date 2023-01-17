@@ -16,8 +16,8 @@
 
 
 ## QuickEspNow w/ LED Sync
-### Sync multiple devices' LED with QuickEspNow broadcasting
+### Sync multiple devices' time with QuickEspNow broadcasting
 Project dependancy: QuickEspNow, SimpleMap <br>
-Features:member drop/add detection, time sync, optional binary MessagePack <br>
+Features:member drop/add detection, time sync, optional binary MessagePack, optional unicast RTTI <br>
 <img src="WireShark_EspNowBroadcast.png" width=480>the middle one is the latest board added to the group!<img src="EspNowBlink.gif" width=480>
 <img src="EspNowSync0117.png" width=640>
